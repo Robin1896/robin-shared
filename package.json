@@ -1,0 +1,26 @@
+{
+  "name": "robin-shared",
+  "version": "1.0.0",
+  "description": "Gedeelde library voor alle Robin-apps: logging, db, auth, api-helpers, email en icon-huisstijl",
+  "license": "UNLICENSED",
+  "repository": "github:Robin1896/robin-shared",
+  "exports": {
+    ".": "./src/index.ts",
+    "./log": "./src/log.ts",
+    "./api": "./src/api.ts",
+    "./auth": "./src/auth.ts",
+    "./db-pg": "./src/db-pg.ts",
+    "./db-neon": "./src/db-neon.ts",
+    "./email": "./src/email.ts"
+  },
+  "peerDependencies": {
+    "pg": ">=8",
+    "@neondatabase/serverless": ">=0.10",
+    "resend": ">=3"
+  },
+  "peerDependenciesMeta": {
+    "pg": { "optional": true },
+    "@neondatabase/serverless": { "optional": true },
+    "resend": { "optional": true }
+  }
+}
