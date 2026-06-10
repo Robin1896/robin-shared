@@ -1,0 +1,31 @@
+/* robin-shared design tokens — single source of truth voor alle apps.
+   Apps mappen hun lokale variabelen op deze --rs-* tokens:
+     Tailwind v4:  @theme { --color-bg: var(--rs-bg); ... }
+     CSS vars:     :root { --bg: var(--rs-bg); ... }
+   Donker thema is opt-in via theme-dark.css (alleen TripSync). */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* kleuren */
+  --rs-bg:      #f4efe6;
+  --rs-card:    #fffdf9;
+  --rs-surface2:#ede8df;
+  --rs-ink:     #1a1d2e;
+  --rs-muted:   #8a8478;
+  --rs-dim:     #c0bab3;
+  --rs-brand:   #c14a1f;
+  --rs-success: #2d7a3a;
+  --rs-red:     #c0392b;
+  --rs-amber:   #b8860b;
+  --rs-border:        rgba(26, 29, 46, 0.10);
+  --rs-border-hover:  rgba(26, 29, 46, 0.22);
+
+  /* typografie */
+  --rs-font-serif: 'Instrument Serif', Georgia, serif;
+  --rs-font-sans:  'DM Sans', system-ui, sans-serif;
+  --rs-font-mono:  'JetBrains Mono', monospace;
+
+  /* mono-label conventie: uppercase, kleine maat, ruime letterafstand */
+  --rs-label-tracking: 0.15em;
+}

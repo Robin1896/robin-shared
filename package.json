@@ -11,16 +11,23 @@
     "./auth": "./src/auth.ts",
     "./db-pg": "./src/db-pg.ts",
     "./db-neon": "./src/db-neon.ts",
-    "./email": "./src/email.ts"
+    "./email": "./src/email.ts",
+    "./tokens": "./src/tokens.ts",
+    "./components": "./src/components.tsx",
+    "./theme.css": "./theme.css",
+    "./theme-dark.css": "./theme-dark.css",
+    "./components.css": "./components.css"
   },
   "peerDependencies": {
     "pg": ">=8",
     "@neondatabase/serverless": ">=0.10",
-    "resend": ">=3"
+    "resend": ">=3",
+    "react": ">=18"
   },
   "peerDependenciesMeta": {
     "pg": { "optional": true },
     "@neondatabase/serverless": { "optional": true },
-    "resend": { "optional": true }
+    "resend": { "optional": true },
+    "react": { "optional": true }
   }
 }

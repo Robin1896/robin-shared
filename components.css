@@ -1,0 +1,103 @@
+/* robin-shared UI-primitieven — werkt in elke app (geen Tailwind nodig).
+   Importeer samen met theme.css. Gemodelleerd naar de Flights-componenten. */
+
+/* ── Btn ─────────────────────────────────────────────────────────────── */
+.rs-btn {
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  font-family: var(--rs-font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: none;
+  background: var(--rs-ink);
+  color: var(--rs-bg);
+  padding: 10px 24px;
+}
+.rs-btn:hover { background: var(--rs-brand); }
+.rs-btn:disabled { background: var(--rs-muted); cursor: wait; }
+
+.rs-btn--outline {
+  background: var(--rs-card);
+  color: var(--rs-ink);
+  border: 1px solid var(--rs-ink);
+  font-size: 11px;
+  padding: 10px 18px;
+}
+.rs-btn--outline:hover { background: var(--rs-ink); color: var(--rs-bg); }
+.rs-btn--outline:disabled { opacity: .4; cursor: wait; }
+.rs-btn--outline.rs-active { background: var(--rs-ink); color: var(--rs-bg); }
+
+.rs-btn--link {
+  background: transparent;
+  color: var(--rs-brand);
+  font-size: 10px;
+  padding: 0;
+  letter-spacing: .05em;
+  text-transform: none;
+}
+.rs-btn--link:hover { text-decoration: underline; background: transparent; }
+
+.rs-btn--remove {
+  background: transparent;
+  color: var(--rs-dim);
+  font-size: 17px;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.rs-btn--remove:hover { color: var(--rs-ink); background: transparent; }
+
+/* ── SectionLabel ────────────────────────────────────────────────────── */
+.rs-label {
+  font-family: var(--rs-font-mono);
+  font-size: 10px;
+  letter-spacing: var(--rs-label-tracking);
+  text-transform: uppercase;
+  color: var(--rs-muted);
+  margin-bottom: 12px;
+}
+
+/* ── StatusMsg ───────────────────────────────────────────────────────── */
+.rs-status {
+  font-family: var(--rs-font-mono);
+  font-size: 12px;
+  padding: 20px 0;
+  text-align: center;
+  color: var(--rs-muted);
+}
+.rs-status--error { color: var(--rs-brand); }
+
+/* ── Loader ──────────────────────────────────────────────────────────── */
+.rs-loader { display: flex; flex-direction: column; align-items: center; gap: 7px; padding: 32px 0; }
+.rs-loader--sm { gap: 5px; padding: 16px 0; }
+.rs-loader__dots { display: flex; gap: 7px; }
+.rs-loader--sm .rs-loader__dots { gap: 5px; }
+.rs-loader__dot {
+  display: block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--rs-brand);
+  animation: rs-ldpulse 1.3s ease-in-out infinite;
+}
+.rs-loader--sm .rs-loader__dot { width: 5px; height: 5px; }
+.rs-loader__msg {
+  font-family: var(--rs-font-mono);
+  font-size: 12px;
+  color: var(--rs-muted);
+  letter-spacing: .06em;
+  min-height: 18px;
+  text-align: center;
+}
+@keyframes rs-ldpulse {
+  0%, 100% { opacity: .2; transform: scale(.7); }
+  50%      { opacity: 1;  transform: scale(1); }
+}
+
+/* ── Card ────────────────────────────────────────────────────────────── */
+.rs-card {
+  background: var(--rs-card);
+  border: 1px solid var(--rs-border);
+}

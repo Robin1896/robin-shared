@@ -1,0 +1,19 @@
+/* Opt-in donker thema (gebruikt door TripSync). Importeer NA theme.css. */
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    --rs-bg:    #12100e;
+    --rs-card:  #1c1916;
+    --rs-ink:   #f0ebe2;
+    --rs-muted: #7a7470;
+    --rs-dim:   #2e2b28;
+  }
+}
+
+html.dark {
+  --rs-bg:    #12100e;
+  --rs-card:  #1c1916;
+  --rs-ink:   #f0ebe2;
+  --rs-muted: #7a7470;
+  --rs-dim:   #2e2b28;
+}

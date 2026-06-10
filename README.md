@@ -60,6 +60,34 @@ Alle apps loggen naar dezelfde Neon `app_logs` tabel, dashboard: https://admin-r
 Nooit kale `fetch('/api/...')` — altijd via `apiUrl()`/`${API}` zodat de statisch
 gebundelde iOS-app de calls naar de Vercel-backend stuurt (`NEXT_PUBLIC_API_BASE`).
 
+### Design system (kleuren + typografie)
+`theme.css` is de single source of truth — alle apps mappen hun lokale variabelen
+op de `--rs-*` tokens, dus een kleurwijziging hier verandert alle apps:
+
+```css
+/* Tailwind v4 apps (Flights, TripSync, Echoo) */
+@theme { --color-bg: var(--rs-bg); --color-dark: var(--rs-ink); ... }
+/* CSS-var apps (Ludoryn) */
+:root { --bg: var(--rs-bg); --text: var(--rs-ink); --accent: var(--rs-brand); ... }
+```
+
+In de app-layout (vóór globals.css):
+```ts
+import 'robin-shared/theme.css'
+import 'robin-shared/components.css'   // voor de rs-* componenten
+```
+
+Palet: bg `#f4efe6` · card `#fffdf9` · ink `#1a1d2e` · brand `#c14a1f` · muted `#8a8478` · dim `#c0bab3` · success `#2d7a3a`
+Typografie: **Instrument Serif** (display) · **DM Sans** (body) · **JetBrains Mono** (labels, uppercase + ruime tracking)
+Donker thema: opt-in via `theme-dark.css` (TripSync).
+TS-constanten voor inline styles/canvas: `import { colors, fonts } from 'robin-shared/tokens'`.
+
+### UI-componenten
+`robin-shared/components` (+ `components.css`): `Btn` (primary/outline/link/remove),
+`SectionLabel`, `StatusMsg`, `Loader`, `Card` — huisstijl-primitieven zonder
+Tailwind-afhankelijkheid. Nieuwe UI bouw je hiermee; bestaande app-specifieke
+componenten (Ludoryn `ui.tsx`, Flights Tailwind-componenten) migreren geleidelijk.
+
 ### App-icons (huisstijl)
 Crème achtergrond `#ede8dd`, donkere Georgia-serif letter `#1a1d2e`, rode stip `#c14a1f`:
 
