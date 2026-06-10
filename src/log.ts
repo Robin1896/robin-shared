@@ -14,6 +14,8 @@ export interface LogOpts {
   groupCode?: string | null
   error?: string | null
   ip?: string | null
+  /** optionele override van de app-naam (bijv. een log-ingest endpoint dat voor meerdere apps logt) */
+  app?: string
 }
 
 export type LogApi = (opts: LogOpts) => Promise<void>
@@ -26,7 +28,7 @@ export function makeLogApi(app: string): LogApi {
     fetch('https://admin-robin.vercel.app/api/log', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ key, app, ...opts }),
+      body: JSON.stringify({ key, ...opts, app: opts.app ?? app }),
     }).catch(() => {})
   }
 }
@@ -40,7 +42,7 @@ export function makeDbLogApi(query: QueryFn, app: string): LogApi {
       `INSERT INTO app_logs (app, method, path, status_code, duration_ms, user_id, group_code, error, ip)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
       [
-        app,
+        opts.app ?? app,
         opts.method.toUpperCase(),
         opts.path,
         opts.status,
