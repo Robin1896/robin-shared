@@ -2,9 +2,8 @@
    Apps mappen hun lokale variabelen op deze --rs-* tokens:
      Tailwind v4:  @theme { --color-bg: var(--rs-bg); ... }
      CSS vars:     :root { --bg: var(--rs-bg); ... }
+   Fonts: importeer fonts.css (Google CSS) óf gebruik next/font (Echoo).
    Donker thema is opt-in via theme-dark.css (alleen TripSync). */
-
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
   /* kleuren */
