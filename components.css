@@ -1,7 +1,8 @@
 /* robin-shared UI-primitieven — werkt in elke app (geen Tailwind nodig).
    Importeer samen met theme.css. Gemodelleerd naar de Flights-componenten. */
 
-/* ── Btn ─────────────────────────────────────────────────────────────── */
+/* ── Btn ─────────────────────────────────────────────────────────────────
+   Varianten 1-op-1 overgenomen van de Flights-componenten (de canonieke stijl). */
 .rs-btn {
   cursor: pointer;
   transition: background-color .15s ease, color .15s ease, border-color .15s ease;
@@ -13,7 +14,8 @@
   border: none;
   background: var(--rs-ink);
   color: var(--rs-bg);
-  padding: 10px 24px;
+  padding: 0 24px;
+  height: 100%; /* vult de zoekbalk-rij; buiten flex-context gedraagt dit zich als auto */
 }
 .rs-btn:hover { background: var(--rs-brand); }
 .rs-btn:disabled { background: var(--rs-muted); cursor: wait; }
@@ -24,10 +26,33 @@
   border: 1px solid var(--rs-ink);
   font-size: 11px;
   padding: 10px 18px;
+  height: auto;
 }
 .rs-btn--outline:hover { background: var(--rs-ink); color: var(--rs-bg); }
 .rs-btn--outline:disabled { opacity: .4; cursor: wait; }
 .rs-btn--outline.rs-active { background: var(--rs-ink); color: var(--rs-bg); }
+
+.rs-btn--heart {
+  background: var(--rs-card);
+  color: var(--rs-muted);
+  font-size: 22px;
+  padding: 0 18px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.rs-btn--heart:hover { background: var(--rs-bg); color: var(--rs-brand); }
+.rs-btn--heart.rs-active { color: var(--rs-brand); }
+
+.rs-btn--icon {
+  background: transparent;
+  color: var(--rs-muted);
+  font-size: 18px;
+  padding: 4px;
+  letter-spacing: normal;
+  text-transform: none;
+  height: auto;
+}
+.rs-btn--icon:hover { color: var(--rs-ink); background: transparent; }
 
 .rs-btn--link {
   background: transparent;
@@ -36,6 +61,7 @@
   padding: 0;
   letter-spacing: .05em;
   text-transform: none;
+  height: auto;
 }
 .rs-btn--link:hover { text-decoration: underline; background: transparent; }
 
@@ -47,6 +73,7 @@
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
+  height: auto;
 }
 .rs-btn--remove:hover { color: var(--rs-ink); background: transparent; }
 

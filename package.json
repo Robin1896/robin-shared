@@ -12,6 +12,7 @@
     "./db-pg": "./src/db-pg.ts",
     "./db-neon": "./src/db-neon.ts",
     "./email": "./src/email.ts",
+    "./metadata": "./src/metadata.ts",
     "./tokens": "./src/tokens.ts",
     "./components": "./src/components.tsx",
     "./theme.css": "./theme.css",

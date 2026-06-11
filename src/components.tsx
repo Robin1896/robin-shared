@@ -7,7 +7,7 @@
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-export type BtnVariant = 'primary' | 'outline' | 'link' | 'remove'
+export type BtnVariant = 'primary' | 'outline' | 'heart' | 'icon' | 'link' | 'remove'
 
 interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: BtnVariant
