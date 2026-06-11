@@ -52,3 +52,27 @@ export function Loader({ msg, size = 'md' }: { msg?: string; size?: 'sm' | 'md' 
 export function Card({ children, className = '', style }: { children: ReactNode; className?: string; style?: React.CSSProperties }) {
   return <div className={`rs-card ${className}`.trim()} style={style}>{children}</div>
 }
+
+// Versienummer rechtsonder — wordt bij elke commit opgehoogd. Geef de versie
+// uit de per-app version.ts mee: <VersionBadge version={APP_VERSION} />
+export function VersionBadge({ version }: { version: string }) {
+  return (
+    <span
+      aria-hidden
+      style={{
+        position: 'fixed',
+        right: 'max(8px, env(safe-area-inset-right))',
+        bottom: 'max(6px, env(safe-area-inset-bottom))',
+        zIndex: 50,
+        fontFamily: 'var(--rs-font-mono)',
+        fontSize: 9,
+        letterSpacing: '0.08em',
+        color: 'var(--rs-dim)',
+        pointerEvents: 'none',
+        opacity: 0.7,
+      }}
+    >
+      v{version}
+    </span>
+  )
+}
