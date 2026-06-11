@@ -27,4 +27,15 @@
 
   /* mono-label conventie: uppercase, kleine maat, ruime letterafstand */
   --rs-label-tracking: 0.15em;
+
+  /* game-identiteitskleuren (Ludoryn) — zelfde waarden als tokens.ts gameColors */
+  --rs-game-grub:           #00C875;
+  --rs-game-qwixx:          #FFCA28;
+  --rs-game-carcassonne:    #66BB6A;
+  --rs-game-beverbende:     #2EC4B6;
+  --rs-game-ticket-to-ride: #4285F4;
+  --rs-game-catan:          #FF5252;
+  --rs-game-wingspan:       #4A90D9;
+  --rs-game-rummikub:       #FF7043;
+  --rs-game-bommen:         #0088C8;
 }

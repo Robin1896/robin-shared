@@ -28,3 +28,19 @@ export const icon = {
   letter: '#1a1d2e',
   dot: '#c14a1f',
 } as const
+
+// Game-identiteitskleuren (Ludoryn) — één accent per spel, hier gedefinieerd
+// en nergens anders. Keys = interne game-ids (routes), commentaar = speelnaam.
+export const gameColors = {
+  grub:             { accent: '#00C875', dark: '#0A9659' }, // Grub Hunt / Wormenjacht
+  qwixx:            { accent: '#FFCA28', dark: '#C79A00' }, // Kriskras
+  carcassonne:      { accent: '#66BB6A', dark: '#2E7D32' }, // Basteon
+  beverbende:       { accent: '#2EC4B6', dark: '#0D7A73' }, // Flikflak
+  'ticket-to-ride': { accent: '#4285F4', dark: '#1A57C2' }, // Traxion / Treinreis
+  catan:            { accent: '#FF5252', dark: '#C62828' }, // Kolonis
+  wingspan:         { accent: '#4A90D9', dark: '#1F5C99' }, // Vleugels
+  rummikub:         { accent: '#FF7043', dark: '#BF360C' },
+  bommen:           { accent: '#0088C8', dark: '#005F8C' }, // 1000 Bommen
+} as const
+
+export type GameId = keyof typeof gameColors
