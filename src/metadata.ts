@@ -17,6 +17,7 @@ export interface AppMetaOpts {
   manifest?: string              // bijv. '/manifest.json'
   url?: string                   // absolute basis-URL → metadataBase + og.url
   titleTemplate?: string         // bijv. '%s | Ludoryn'
+  siteName?: string              // og:site_name (default: appName zonder eindpunt)
 }
 
 export function buildMetadata(o: AppMetaOpts) {
@@ -33,7 +34,8 @@ export function buildMetadata(o: AppMetaOpts) {
       title: o.appName,
       description: ogDesc,
       type: 'website' as const,
-      ...(o.url ? { url: o.url, siteName: o.appName.replace(/\.$/, '') } : {}),
+      ...(o.url ? { url: o.url } : {}),
+      siteName: o.siteName ?? o.appName.replace(/\.$/, ''),
       images: [{ url: ogImage, width: 1200, height: 630, alt: o.ogImageAlt ?? o.appName }],
     },
     twitter: {
