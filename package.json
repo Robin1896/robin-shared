@@ -13,6 +13,7 @@
     "./db-neon": "./src/db-neon.ts",
     "./email": "./src/email.ts",
     "./metadata": "./src/metadata.ts",
+    "./sound": "./src/sound.ts",
     "./tokens": "./src/tokens.ts",
     "./components": "./src/components.tsx",
     "./theme.css": "./theme.css",
