@@ -1,14 +1,15 @@
-# Social media — @robinbuilds (kant-en-klaar)
+# Social media — @stip.apps (kant-en-klaar)
 
-Umbrella maker-account voor alle apps. TikTok = motor, Instagram Reels =
-gratis tweede kanaal (zelfde clips), X optioneel voor #buildinpublic.
+Neutraal merk rond de **rode stip** — de visuele handtekening in elk app-icoon.
+Geen persoonlijke naam. TikTok = motor, Instagram Reels = gratis tweede kanaal
+(zelfde clips), X optioneel voor #buildinpublic.
 
 ## Account-setup (jouw ~15 min)
-- **Handle (overal gelijk):** `@robinbuilds`
-- **Avatar:** `avatar-robinbuilds.png` (R. in huisstijl — crème, serif, rode stip)
-- **Naam:** Robin · maakt apps
+- **Handle (overal gelijk):** `@stip.apps` (alternatieven als bezet: `@stipapps`, `@stip.studio`, `@madebystip`)
+- **Avatar:** `avatar-stip.png` (de rode stip op crème — het merksymbool)
+- **Naam:** Stip
 - **Bio:**
-  > Ik bouw kleine, mooie apps 📱✨
+  > Kleine, fijne apps 📱✨
   > ✈️ Flights · 🎲 Ludoryn · 🌍 TripSync · 🎙️ Echoo
   > Alles gratis 👇
 - **Link in bio:** Linktree (gratis) met de 4 links hieronder.
@@ -52,9 +53,9 @@ actie · einde: app-naam + "gratis — link in bio". 9-15 sec. Trending/rustige 
 - Opname: in de vetoronde een bestemming wegstrepen.
 - Caption: Niemand wil naar [x]? Eén tik en 'ie ligt eruit 🚫 #grouptravel #tripplanner
 
-**6. Maker-intro (#buildinpublic)**
-- Hook: *"Ik bouwde dit jaar 4 apps in mijn eentje — hier zijn ze"*
-- Opname: snelle montage van alle 4 de apps (3 sec elk).
+**6. Merk-intro (#buildinpublic)**
+- Hook: *"4 apps. 1 stip. Allemaal gratis."*
+- Opname: snelle montage van alle 4 de apps (3 sec elk), eindigend op de stip.
 - Caption: Welke zou jij gebruiken? 👀 Alles gratis, link in bio. #buildinpublic #indiedev #appdev
 
 ## Cadans
