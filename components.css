@@ -5,6 +5,7 @@
    Varianten 1-op-1 overgenomen van de Flights-componenten (de canonieke stijl). */
 .rs-btn {
   cursor: pointer;
+  border-radius: 8px;
   transition: background-color .15s ease, color .15s ease, border-color .15s ease;
   font-family: var(--rs-font-sans);
   font-weight: 500;
@@ -127,4 +128,5 @@
 .rs-card {
   background: var(--rs-card);
   border: 1px solid var(--rs-border);
+  border-radius: 12px;
 }
