@@ -63,7 +63,14 @@ export const APPS = {
   echoo: {
     baseUrl: 'https://echo-omega-umber.vercel.app',
     screens: [
-      { slug: 'support', headline: 'Laat je <b>stem</b><br>achter.', route: '/support', wait: 2500 },
+      { slug: 'home', headline: 'Laat je <b>stem</b> achter,<br>waar je was.', route: '/', wait: 3000,
+        prepare: async (page) => {
+          // voorwaarden vereisen scroll-tot-onder voordat 'Accepteren' actief wordt
+          await page.evaluate(() => document.querySelectorAll('*').forEach(el => { if (el.scrollHeight > el.clientHeight + 20) el.scrollTop = el.scrollHeight })).catch(() => {})
+          await page.waitForTimeout(600)
+          await page.click('button:has-text("Accepteren")', { timeout: 6000 }).catch(() => {})
+          await page.waitForTimeout(5500)
+        } },
     ],
   },
 }
@@ -128,6 +135,7 @@ async function run(only) {
     const dev = await browser.newContext({
       viewport: { width: DEVICE.width, height: DEVICE.height },
       deviceScaleFactor: DEVICE.scale, isMobile: true, hasTouch: true, locale: 'nl-NL',
+      permissions: ['geolocation'], geolocation: { latitude: 52.3702, longitude: 4.8952 }, // Amsterdam
     })
     let i = 0
     for (const s of cfg.screens) {
@@ -140,7 +148,7 @@ async function run(only) {
         const raw = await page.screenshot()
         const dataUrl = 'data:image/png;base64,' + raw.toString('base64')
         const bg = s.bg ?? PASTELS[(i - 1) % PASTELS.length]
-        const accent = s.accent ?? COLORS.brand
+        const accent = s.accent ?? cfg.accent ?? COLORS.brand
         const frame = await frameCtx.newPage()
         await frame.setContent(framePage(s.headline, s.badge, dataUrl, bg, accent), { waitUntil: 'networkidle' })
         await frame.waitForTimeout(700)
