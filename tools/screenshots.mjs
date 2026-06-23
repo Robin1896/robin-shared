@@ -118,6 +118,9 @@ function framePage(headline, badge, imgDataUrl, bg, accent) {
 async function run(only) {
   const browser = await chromium.launch()
   const entries = Object.entries(APPS).filter(([k]) => !only || k === only)
+  // Aparte context voor het inlijsten op scale 1 → exact FRAME.width x FRAME.height
+  // (anders erft de frame-pagina de 3x device-scale en wordt het beeld te groot voor de App Store).
+  const frameCtx = await browser.newContext({ viewport: { width: FRAME.width, height: FRAME.height }, deviceScaleFactor: 1, locale: 'nl-NL' })
 
   for (const [app, cfg] of entries) {
     const outDir = join(process.cwd(), 'appstore-screenshots', app)
@@ -138,8 +141,7 @@ async function run(only) {
         const dataUrl = 'data:image/png;base64,' + raw.toString('base64')
         const bg = s.bg ?? PASTELS[(i - 1) % PASTELS.length]
         const accent = s.accent ?? COLORS.brand
-        const frame = await dev.newPage()
-        await frame.setViewportSize({ width: FRAME.width, height: FRAME.height })
+        const frame = await frameCtx.newPage()
         await frame.setContent(framePage(s.headline, s.badge, dataUrl, bg, accent), { waitUntil: 'networkidle' })
         await frame.waitForTimeout(700)
         const out = join(outDir, `${String(i).padStart(2, '0')}-${s.slug}.png`)
@@ -153,6 +155,7 @@ async function run(only) {
     }
     await dev.close()
   }
+  await frameCtx.close()
   await browser.close()
 }
 
