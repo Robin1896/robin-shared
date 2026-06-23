@@ -29,7 +29,48 @@ const APPS = {
     // subreddits waar de doelgroep zit
     subreddits: ['travel', 'Flights', 'TravelHacks', 'Shoestring', 'solotravel', 'Netherlands', 'awardtravel', 'onebag'],
   },
-  // Voeg hier ludoryn / tripsync / echoo toe op dezelfde manier.
+  ludoryn: {
+    name: 'Ludoryn',
+    url: 'https://ludoryn-web.vercel.app',
+    pitch: 'Speel bordspellen online met vrienden — direct in de browser, geen installatie (Flikflak, Kriskras, 1000 Bommen, Grub Hunt e.a.).',
+    audience: 'mensen die online met vrienden bordspellen/partyspellen willen spelen',
+    niche: 'online bordspellen / multiplayer browsergames',
+    lang: 'nl',
+    keywords: [
+      'play board games online with friends', 'online board games free no download',
+      'browser board games multiplayer', 'party games online with friends',
+      'digital board game night', 'online dice games with friends',
+    ],
+    subreddits: ['boardgames', 'tabletopgames', 'WebGames', 'IndieGaming', 'playmygame', 'incremental_games'],
+  },
+  tripsync: {
+    name: 'TripSync',
+    url: 'https://tripsync-jade.vercel.app',
+    pitch: 'Beslis samen met je groep waar je heen gaat — voorstellen, stemmen, knopen doorhakken, zonder eindeloze appjes.',
+    audience: 'groepen vrienden/familie die samen een reis plannen',
+    niche: 'groepsreis plannen / samen beslissen waarheen',
+    lang: 'nl',
+    keywords: [
+      'plan a trip with friends app', 'how to decide where to travel as a group',
+      'group trip planning tool', 'travel voting app', 'group vacation planning',
+      'app to pick a holiday destination together',
+    ],
+    subreddits: ['travel', 'TravelHacks', 'roadtrip', 'solotravel', 'productivity', 'SideProject'],
+  },
+  echoo: {
+    name: 'Echo.',
+    url: 'https://echo-omega-umber.vercel.app',
+    pitch: 'Laat een kort geluidsfragment achter op de plek waar je bent; wie later langskomt, hoort jouw echo. Locatiegebonden audio.',
+    audience: 'mensen die van locatiegebonden, creatieve sociale apps houden',
+    niche: 'locatiegebonden audio / geo-social / soundmap',
+    lang: 'nl',
+    keywords: [
+      'location based audio app', 'leave a voice message at a place',
+      'geotagged audio app', 'soundmap app', 'audio left at a location',
+      'location based social audio',
+    ],
+    subreddits: ['SideProject', 'InternetIsBeautiful', 'iosapps', 'androidapps', 'apphookup', 'sideproject'],
+  },
 }
 
 // intentie-signalen → een post is een goede kans om te reageren
@@ -77,7 +118,8 @@ async function callAI(prompt) {
 // Reddit blokkeert anonieme .json (403) → app-only OAuth via een gratis "script"-app:
 // https://www.reddit.com/prefs/apps → "create app" type=script → zet
 // REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET als env.
-const UA = { 'User-Agent': 'robin-growth-tool/1.0 (by u/yourname)' }
+// Geen echte naam in de UA — neutraal + instelbare pseudo-handle via env REDDIT_USER.
+const UA = { 'User-Agent': `${appKey}-growth/1.0 (by u/${process.env.REDDIT_USER || 'anon'})` }
 async function redditToken() {
   const id = process.env.REDDIT_CLIENT_ID, secret = process.env.REDDIT_CLIENT_SECRET
   if (!id || !secret) {
